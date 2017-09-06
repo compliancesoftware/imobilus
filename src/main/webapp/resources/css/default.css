@@ -1,0 +1,250 @@
+html{
+    height: 100% !important;
+    font-family: cursive;
+}
+
+body{
+    height: 100% !important;
+    background-color: #000000;
+    margin: 0.4rem 0rem 0rem 0rem !important;
+}
+
+.cabecalho{
+    background-color: #bcbcbc;
+    width: 100%;
+    overflow: overlay;  
+}
+
+.logomarca {
+    background-color: #ffffff;
+    height: 7rem;
+    width: 18.2rem;
+    margin-left: 0.8rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.apresentacao {
+    color: #dcdcdc;
+    font-size: 200%;
+    text-align: center;
+    width: 18.5rem;
+    float: left;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.navbar{
+    background-color: #abcdef;
+    width: auto;
+    text-align: center;
+    overflow: overlay;
+    z-index: 501;
+}
+
+.menu-item {
+    width: 17%;
+    float: left;
+    height: 3rem;
+    display: block;
+    margin: auto;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.menu-toggle-next-btn{
+    display: none;
+    color: white;
+    text-align: left !important;
+    margin-top: -0.5rem;
+    padding: 0rem;
+    margin-left: 0rem !important;
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 2.3rem;
+    padding-top: 0.6rem;
+    padding-left: 0.6rem;
+    z-index: 500;
+}
+
+.menu-toggle-btn{
+    display: none;
+    text-align: right;
+    margin-top: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.galeria{
+    width: 85%;
+    margin: auto;
+    margin-top: 0.4rem;
+}
+
+.slick-dots li button::before{
+    color: #ffffff !important;
+}
+
+.lancamentos{
+    width: 85%;
+    margin: auto;
+}
+
+.lancamento{
+    width: 17rem;
+    background-color: white;
+    margin-right: 1rem;
+}
+
+.lancamento .image-div{
+    width: 100%;
+    height: 15rem;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+.lancamento .image-label{
+    margin-top: -2.5rem;
+    margin-bottom: 0rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    background-color: red;
+    color: white;
+    width: auto;
+    display: block;
+    float: right;
+    padding: 0.2rem;
+    border: 0.2rem solid darkred;
+}
+
+.lancamento .info .info-municipio{
+    text-align: left;
+    float: right;
+    width: 100%;
+}
+
+.lancamento .info{
+    margin-left: 0.8rem;
+}
+
+.cadastro{
+    width: 30rem;
+    background-color: #dcdcdc;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cadastro form{
+    width: 90%;
+    margin: auto;
+}
+
+.cadastro p{
+    font-size: 200%;
+    text-align: center;
+}
+
+.cadastro form input{
+    width: 90%;
+    height: 2rem;
+    text-align: center;
+    font-size: 120%;
+}
+
+.cadastro form button{
+    width: 90%;
+    margin-bottom: 1rem;
+    margin-top: 0.4rem;
+    height: 2rem;
+    font-size: 110%;
+    cursor: pointer;
+}
+
+.rodape-endereco{
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    color: black;
+    overflow: auto;
+}
+
+.rodape-endereco .texto{
+    margin-top: 1rem;
+    border-bottom: 0.1rem dotted black;
+    float: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.rodape-endereco .consideracoes{
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin-top: 0rem;
+}
+
+.rodape-endereco .consideracoes a{
+    text-decoration: none;
+    cursor: pointer;
+    color: gray;
+}
+
+.rodape-endereco .consideracoes a:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: #cdcdcd;
+}
+
+@media screen and (min-width: 1351px) {
+    .navbar{
+        display: block;
+        position: relative;
+    }
+
+    .menu-item{
+        border-left: 0.2rem solid honeydew;
+        border-bottom: none;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .navbar{
+        width: 14.5rem;
+        display: none;
+        position: fixed;
+        top: 0.5rem;
+    }
+
+    .cabecalho{
+        padding-top: 2.3rem;
+    }
+
+    .menu-item {
+        width: 12.5rem;
+        border-bottom: 0.2rem solid honeydew;
+        border-left: none;
+    }
+
+    .menu-toggle-btn, .menu-toggle-next-btn{
+        display: block;
+    }
+
+    .cadastro{
+        width: auto;
+        margin-left: 0.4rem;
+        margin-right: 0.4rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .apresentacao{
+        width: 97% !important;
+    }
+}
