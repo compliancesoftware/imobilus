@@ -217,7 +217,7 @@ public class AddressController {
 		
 		for(Rules rule : rules) {
 			Logs.info("[AddressController] :: haveTheRules :: " + user.getName() + " rule: "+rule.getValue());
-			if(!rule.equals(Rules.MAILER)) {
+			if(!rule.equals(Rules.MARKETING)) {
 				Logs.info("[AddressController] :: haveTheRules :: true");
 				haveRules = true;
 			}

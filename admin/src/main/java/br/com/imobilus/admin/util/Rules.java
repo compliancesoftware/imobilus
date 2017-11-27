@@ -6,8 +6,7 @@ import java.util.List;
 public enum Rules {
 	ADMINISTRADOR("Administrador"),
 	CORRETOR("Corretor"),
-	MAILER("Mailer"),
-	GERENTE("Gerente"),
+	MARKETING("Marketing"),
 	FINANCEIRO("Financeiro"),
 	TESTE("Teste");
 	

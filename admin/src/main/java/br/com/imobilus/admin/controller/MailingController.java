@@ -45,9 +45,7 @@ public class MailingController {
 			Logs.info("[MailingController] :: createMailingSetting :: Authenticating user: "+authUser.getName());
 			User authenticatedUser = userService.authenticate(authUser);
 			
-			String rules = authenticatedUser.getPermission().getRules();
-			
-			if(rules.contains(""+Rules.ADMINISTRADOR) || rules.contains(""+Rules.MAILER)) {
+			if(haveTheRules(authenticatedUser)) {
 				Logs.info("[MailingController] :: createMailingSetting :: User authenticate success: " + authenticatedUser);
 				
 				Logs.info("[MailingController] :: createMailingSetting :: Creating mailing setting: "+mailing);
@@ -94,9 +92,7 @@ public class MailingController {
 			Logs.info("[MailingController] :: updateMailingSetting :: Authenticating user: "+authUser.getName());
 			User authenticatedUser = userService.authenticate(authUser);
 			
-			String rules = authenticatedUser.getPermission().getRules();
-			
-			if(rules.contains(""+Rules.ADMINISTRADOR) || rules.contains(""+Rules.MAILER)) {
+			if(haveTheRules(authenticatedUser)) {
 				Logs.info("[MailingController] :: updateMailingSetting :: User authenticate success: " + authenticatedUser);
 				
 				Logs.info("[MailingController] :: updateMailingSetting :: Updating mailing setting: "+mailing);
@@ -143,9 +139,7 @@ public class MailingController {
 			Logs.info("[MailingController] :: deleteMailingSetting :: Authenticating user: "+authUser.getName());
 			User authenticatedUser = userService.authenticate(authUser);
 			
-			String rules = authenticatedUser.getPermission().getRules();
-			
-			if(rules.contains(""+Rules.ADMINISTRADOR) || rules.contains(""+Rules.MAILER)) {
+			if(haveTheRules(authenticatedUser)) {
 				Logs.info("[MailingController] :: deleteMailingSetting :: User authenticate success: " + authenticatedUser);
 				
 				Logs.info("[MailingController] :: deleteMailingSetting :: Deleting mailing setting: "+mailing);
@@ -189,9 +183,7 @@ public class MailingController {
 			Logs.info("[MailingController] :: retriveMailingSettings :: Authenticating user: "+authUser.getName());
 			User authenticatedUser = userService.authenticate(authUser);
 			
-			String rules = authenticatedUser.getPermission().getRules();
-			
-			if(rules.contains(""+Rules.ADMINISTRADOR) || rules.contains(""+Rules.MAILER)) {
+			if(haveTheRules(authenticatedUser)) {
 				Logs.info("[MailingController] :: retriveMailingSettings :: User authenticate success: " + authenticatedUser);
 				
 				Logs.info("[MailingController] :: retriveMailingSettings :: Retriving settings...");
@@ -217,5 +209,20 @@ public class MailingController {
 		}
 		
 		return httpResponse;
+	}
+	
+	private boolean haveTheRules(User user) {
+		boolean haveRules = false;
+		List<Rules> rules = user.getPermission().getRulesAsList();
+		
+		for(Rules rule : rules) {
+			Logs.info("[MailingController] :: haveTheRules :: " + user.getName() + " rule: "+rule.getValue());
+			if(rule.equals(Rules.ADMINISTRADOR) || rule.equals(Rules.MARKETING)) {
+				Logs.info("[AddressController] :: haveTheRules :: true");
+				haveRules = true;
+			}
+		}
+		
+		return haveRules;
 	}
 }

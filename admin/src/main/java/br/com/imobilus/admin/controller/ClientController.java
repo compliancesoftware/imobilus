@@ -217,7 +217,7 @@ public class ClientController {
 		
 		for(Rules rule : rules) {
 			Logs.info("[ClientController] :: canModify :: " + user.getName() + " rule: "+rule.getValue());
-			if(rule.equals(Rules.ADMINISTRADOR) || rule.equals(Rules.GERENTE)) {
+			if(rule.equals(Rules.ADMINISTRADOR)) {
 				Logs.info("[ClientController] :: canModify :: true");
 				canModify = true;
 			}
