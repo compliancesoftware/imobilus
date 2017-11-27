@@ -17,6 +17,7 @@ import br.com.imobilus.admin.model.User;
 import br.com.imobilus.admin.service.UserService;
 import br.com.imobilus.admin.util.Logs;
 import br.com.imobilus.admin.util.Rules;
+import br.com.imobilus.admin.util.request.UserRequest;
 import br.com.imobilus.admin.util.response.ProcResponse;
 import br.com.imobilus.admin.util.response.ProcResponse.Status;
 
@@ -70,7 +71,9 @@ public class UserController {
 	}
 	
 	@PostMapping(value = "create", consumes="application/json")
-	public ResponseEntity<ProcResponse> createUser(@RequestHeader("userName") String userName, @RequestHeader("userPassword") String userPassword, @RequestBody User user) {
+	public ResponseEntity<ProcResponse> createUser(@RequestHeader("userName") String userName, @RequestHeader("userPassword") String userPassword, @RequestBody UserRequest userRequest) {
+		User user = userRequest.toUser();
+		
 		ProcResponse response = ProcResponse.getInstance();
 		ResponseEntity<ProcResponse> httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		
@@ -116,7 +119,9 @@ public class UserController {
 	}
 	
 	@PostMapping(value = "update", consumes="application/json")
-	public ResponseEntity<ProcResponse> updateUser(@RequestHeader("userName") String userName, @RequestHeader("userPassword") String userPassword, @RequestBody User user) {
+	public ResponseEntity<ProcResponse> updateUser(@RequestHeader("userName") String userName, @RequestHeader("userPassword") String userPassword, @RequestBody UserRequest userRequest) {
+		User user = userRequest.toUser();
+		
 		ProcResponse response = ProcResponse.getInstance();
 		ResponseEntity<ProcResponse> httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		
