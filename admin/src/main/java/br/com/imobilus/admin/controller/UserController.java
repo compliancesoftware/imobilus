@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.imobilus.admin.model.User;
 import br.com.imobilus.admin.service.UserService;
 import br.com.imobilus.admin.util.Logs;
-import br.com.imobilus.admin.util.Rules;
+import br.com.imobilus.admin.util.enums.Rules;
 import br.com.imobilus.admin.util.request.UserRequest;
 import br.com.imobilus.admin.util.response.ProcResponse;
 import br.com.imobilus.admin.util.response.ProcResponse.Status;

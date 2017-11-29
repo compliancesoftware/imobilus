@@ -1,4 +1,4 @@
-package br.com.imobilus.admin.util;
+package br.com.imobilus.admin.util.enums;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -21,7 +21,7 @@ import br.com.imobilus.admin.service.MailingService;
 import br.com.imobilus.admin.service.PermissionService;
 import br.com.imobilus.admin.service.UserService;
 import br.com.imobilus.admin.util.Logs;
-import br.com.imobilus.admin.util.Rules;
+import br.com.imobilus.admin.util.enums.Rules;
 import br.com.imobilus.admin.util.response.ProcResponse;
 import br.com.imobilus.admin.util.response.ProcResponse.Status;
 

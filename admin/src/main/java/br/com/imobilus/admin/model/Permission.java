@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.imobilus.admin.util.Rules;
+import br.com.imobilus.admin.util.enums.Rules;
 
 /**
  * Permissões de usuário do sistema
