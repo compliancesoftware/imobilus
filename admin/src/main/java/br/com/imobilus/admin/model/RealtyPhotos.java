@@ -11,15 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * Entidade relacionada às fotos do progresso de uma construção
- * @author douglas.f.filho
- *
- */
 @SuppressWarnings("serial")
 @Entity
-@Table(name="building_photos")
-public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
+@Table(name="realty_photos")
+public class RealtyPhotos implements br.com.imobilus.admin.model.Entity {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -28,8 +23,8 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 	private byte[] foto;
 	
 	@OneToOne
-	@JoinColumn(name = "building_id")
-	private Building buildingId;
+	@JoinColumn(name = "realty_id")
+	private Realty realtyId;
 	
 	@Column(name = "photo_date", nullable = false)
 	private Calendar photoDate;
@@ -57,12 +52,12 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 		this.foto = foto;
 	}
 
-	public Building getBuildingId() {
-		return buildingId;
+	public Realty getRealtyId() {
+		return realtyId;
 	}
 
-	public void setBuildingId(Building buildingId) {
-		this.buildingId = buildingId;
+	public void setRealtyId(Realty realtyId) {
+		this.realtyId = realtyId;
 	}
 
 	public Calendar getPhotoDate() {
@@ -92,10 +87,10 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 	@Override
 	public String toString() {
 		try {
-			return "BuildingPhotos [id=" + id + ", foto=" + Arrays.toString(foto) + ", buildingId=" + buildingId
-					+ ", photoDate=" + photoDate + ", createdAt=" + createdAt + ", createdBy=" + createdBy + "]";
+			return "RealtyPhotos [id=" + id + ", foto=" + Arrays.toString(foto) + ", realtyId=" + realtyId + ", photoDate="
+					+ photoDate + ", createdAt=" + createdAt + ", createdBy=" + createdBy + "]";
 		} catch(NullPointerException e) {
-			return "BuildingPhotos [null]";
+			return "RealtyPhotos [null]";
 		}
 	}
 }
