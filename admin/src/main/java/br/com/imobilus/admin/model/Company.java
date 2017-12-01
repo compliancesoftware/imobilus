@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="achievement")
+@Table(name="company")
 public class Company implements br.com.imobilus.admin.model.Entity {
 	@Id
 	@GeneratedValue

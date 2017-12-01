@@ -11,11 +11,19 @@
    <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
    <!-- entidade mapaeada -->
+   <class>br.com.imobilus.admin.model.Achievement</class>
+   <class>br.com.imobilus.admin.model.Address</class>
+   <class>br.com.imobilus.admin.model.Bill</class>
+   <class>br.com.imobilus.admin.model.Building</class>
+   <class>br.com.imobilus.admin.model.BuildingPhotos</class>
+   <class>br.com.imobilus.admin.model.Client</class>
+   <class>br.com.imobilus.admin.model.Company</class>
+   <class>br.com.imobilus.admin.model.FinancingAgency</class>
    <class>br.com.imobilus.admin.model.Mailing</class>
    <class>br.com.imobilus.admin.model.Permission</class>
+   <class>br.com.imobilus.admin.model.Realty</class>
+   <class>br.com.imobilus.admin.model.RealtyPhotos</class>
    <class>br.com.imobilus.admin.model.User</class>
-   <class>br.com.imobilus.admin.model.Address</class>
-   <class>br.com.imobilus.admin.model.Client</class>
    
    <properties>
   	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

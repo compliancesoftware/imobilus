@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.imobilus.admin.model.Address;
 import br.com.imobilus.admin.model.Client;
+import br.com.imobilus.admin.model.Company;
 import br.com.imobilus.admin.model.Mailing;
 import br.com.imobilus.admin.model.Permission;
 import br.com.imobilus.admin.model.User;
 import br.com.imobilus.admin.service.AddressService;
 import br.com.imobilus.admin.service.ClientService;
+import br.com.imobilus.admin.service.CompanyService;
 import br.com.imobilus.admin.service.MailingService;
 import br.com.imobilus.admin.service.PermissionService;
 import br.com.imobilus.admin.service.UserService;
@@ -43,6 +45,9 @@ public class MainController {
 	
 	@Autowired
 	ClientService clientService;
+	
+	@Autowired
+	CompanyService companyService;
 	
 	@GetMapping
 	public ResponseEntity<ProcResponse> firstState() {
@@ -170,11 +175,31 @@ public class MainController {
 								
 								if(createdClient != null) {
 									Logs.info("[MainController] :: firstState :: Test client creation success.");
-									response.setMessage("Sistema iniciado com êxito!");
-									response.setStatus(Status.OK);
-									httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.OK);
 									
-									Logs.info("[MainController] :: firstState :: States finished successfully!");
+									Logs.info("[MainController] :: firstState :: Creating test company.");
+									
+									Company company = new Company();
+									company.setCreatedBy(updatedUser);
+									company.setName("Test Company");
+									company.setAddressId(createdAddress);
+									
+									Company createdCompany = companyService.create(company);
+									
+									if(createdCompany != null) {
+										Logs.info("[MainController] :: firstState :: Test company creation success.");
+										
+										response.setMessage("Sistema iniciado com êxito!");
+										response.setStatus(Status.OK);
+										httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.OK);
+										
+										Logs.info("[MainController] :: firstState :: States finished successfully!");
+									}
+									else {
+										Logs.info("[MainController] :: firstState :: Test company creation fails, look up the log.");
+										Logs.info("[MainController] :: firstState :: States finished with errors!");
+										
+										httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+									}
 								}
 								else {
 									Logs.info("[MainController] :: firstState :: Test client creation fails, look up the log.");
