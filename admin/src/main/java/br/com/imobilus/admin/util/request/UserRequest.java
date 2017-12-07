@@ -1,6 +1,5 @@
 package br.com.imobilus.admin.util.request;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import br.com.imobilus.admin.model.Permission;
@@ -19,7 +18,7 @@ public class UserRequest {
 	
 	private String email;
 	
-	private byte[] foto;
+	private String foto;
 	
 	private Permission permission;
 	
@@ -77,11 +76,11 @@ public class UserRequest {
 		this.email = email;
 	}
 
-	public byte[] getFoto() {
+	public String getFoto() {
 		return foto;
 	}
 
-	public void setFoto(byte[] foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
@@ -138,7 +137,7 @@ public class UserRequest {
 	public String toString() {
 		try {
 			return "UserRequest [id=" + id + ", name=" + name + ", phone1=" + phone1
-					+ ", phone2=" + phone2 + ", email=" + email + ", foto=" + Arrays.toString(foto) + ", permission="
+					+ ", phone2=" + phone2 + ", email=" + email + ", foto=" + foto + ", permission="
 					+ permission + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", lastAccess=" + lastAccess
 					+ "]";
 		} catch(NullPointerException e) {

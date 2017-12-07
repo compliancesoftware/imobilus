@@ -36,7 +36,7 @@ public class User  implements br.com.imobilus.admin.model.Entity {
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 	@Column(name = "foto", length = 15000000)
-	private byte[] foto;
+	private String foto;
 	@OneToOne
 	@JoinColumn(name = "permission")
 	private Permission permission;
@@ -83,10 +83,10 @@ public class User  implements br.com.imobilus.admin.model.Entity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public byte[] getFoto() {
+	public String getFoto() {
 		return foto;
 	}
-	public void setFoto(byte[] foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 	public Permission getPermission() {
@@ -113,9 +113,15 @@ public class User  implements br.com.imobilus.admin.model.Entity {
 	public void setLastAccess(Calendar lastAccess) {
 		this.lastAccess = lastAccess;
 	}
-	
 	@Override
 	public String toString() {
-		return this.name;
+		try {
+			return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone1=" + phone1 + ", phone2="
+					+ phone2 + ", email=" + email + ", foto=" + foto + ", permission=" + permission + ", createdAt="
+					+ createdAt + ", updatedAt=" + updatedAt + ", lastAccess=" + lastAccess + "]";
+		} catch(NullPointerException e) {
+			return "User [id=" + id + ", name=" + name + "]";
+		}
 	}
+	
 }

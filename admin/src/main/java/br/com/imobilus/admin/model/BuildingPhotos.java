@@ -1,6 +1,5 @@
 package br.com.imobilus.admin.model;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 	private Long id;
 	
 	@Column(name = "foto", length = 15000000)
-	private byte[] foto;
+	private String foto;
 	
 	@OneToOne
 	@JoinColumn(name = "building_id")
@@ -49,11 +48,11 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 		this.id = id;
 	}
 
-	public byte[] getFoto() {
+	public String getFoto() {
 		return foto;
 	}
 
-	public void setFoto(byte[] foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
@@ -92,7 +91,7 @@ public class BuildingPhotos implements br.com.imobilus.admin.model.Entity {
 	@Override
 	public String toString() {
 		try {
-			return "BuildingPhotos [id=" + id + ", foto=" + Arrays.toString(foto) + ", buildingId=" + buildingId
+			return "BuildingPhotos [id=" + id + ", foto=" + foto + ", buildingId=" + buildingId
 					+ ", photoDate=" + photoDate + ", createdAt=" + createdAt + ", createdBy=" + createdBy + "]";
 		} catch(NullPointerException e) {
 			return "BuildingPhotos [null]";

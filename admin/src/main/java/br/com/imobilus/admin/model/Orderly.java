@@ -12,21 +12,25 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="company")
-public class Company implements br.com.imobilus.admin.model.Entity {
+@Table(name="orderly")
+public class Orderly implements br.com.imobilus.admin.model.Entity {
 	@Id
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name = "name", nullable = false)
-	private String name;
+	@OneToOne
+	@JoinColumn(name = "broker", nullable = false)
+	private User broker;
 	
 	@OneToOne
-	@JoinColumn(name = "address_id", nullable = false)
-	private Address addressId;
+	@JoinColumn(name = "realty", nullable = false)
+	private Realty realty;
 	
-	@Column(name = "logo", length = 15000000)
-	private String logo;
+	@Column(name = "start_at", nullable = false)
+	private Calendar startAt;
+	
+	@Column(name = "end_at", nullable = false)
+	private Calendar endAt;
 	
 	@Column(name = "created_at", nullable = false)
 	private Calendar createdAt;
@@ -50,28 +54,36 @@ public class Company implements br.com.imobilus.admin.model.Entity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public User getBroker() {
+		return broker;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setBroker(User broker) {
+		this.broker = broker;
 	}
 
-	public Address getAddressId() {
-		return addressId;
+	public Realty getRealty() {
+		return realty;
 	}
 
-	public void setAddressId(Address addressId) {
-		this.addressId = addressId;
+	public void setRealty(Realty realty) {
+		this.realty = realty;
 	}
 
-	public String getLogo() {
-		return logo;
+	public Calendar getStartAt() {
+		return startAt;
 	}
 
-	public void setLogo(String logo) {
-		this.logo = logo;
+	public void setStartAt(Calendar startAt) {
+		this.startAt = startAt;
+	}
+
+	public Calendar getEndAt() {
+		return endAt;
+	}
+
+	public void setEndAt(Calendar endAt) {
+		this.endAt = endAt;
 	}
 
 	public Calendar getCreatedAt() {
@@ -109,11 +121,12 @@ public class Company implements br.com.imobilus.admin.model.Entity {
 	@Override
 	public String toString() {
 		try {
-			return "Company [id=" + id + ", name=" + name + ", addressId=" + addressId + ", logo=" + logo
-			+ ", createdAt=" + createdAt + ", createdBy=" + createdBy + ", updatedAt=" + updatedAt + ", updatedBy="
-			+ updatedBy + "]";
+			return "Orderly [id=" + id + ", broker=" + broker + ", realty=" + realty + ", startAt=" + startAt + ", endAt="
+					+ endAt + ", createdAt=" + createdAt + ", createdBy=" + createdBy + ", updatedAt=" + updatedAt
+					+ ", updatedBy=" + updatedBy + "]";
 		} catch(NullPointerException e) {
-			return "Company [null]";
+			return "Orderly [null]";
 		}
 	}
+	
 }

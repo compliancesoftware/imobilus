@@ -25,8 +25,8 @@ public class Bill implements br.com.imobilus.admin.model.Entity {
 	private Client client;
 	
 	@OneToOne
-	@JoinColumn(name = "achievement", nullable = false)
-	private Achievement achievement;
+	@JoinColumn(name = "realty", nullable = false)
+	private Realty realty;
 	
 	@OneToOne
 	@JoinColumn(name = "seller", nullable = false)
@@ -93,12 +93,12 @@ public class Bill implements br.com.imobilus.admin.model.Entity {
 		this.client = client;
 	}
 
-	public Achievement getAchievement() {
-		return achievement;
+	public Realty getRealty() {
+		return realty;
 	}
 
-	public void setAchievement(Achievement achievement) {
-		this.achievement = achievement;
+	public void setRealty(Realty realty) {
+		this.realty = realty;
 	}
 
 	public User getSeller() {
@@ -232,7 +232,7 @@ public class Bill implements br.com.imobilus.admin.model.Entity {
 	@Override
 	public String toString() {
 		try {
-			return "Bill [id=" + id + ", client=" + client + ", achievement=" + achievement + ", seller=" + seller
+			return "Bill [id=" + id + ", client=" + client + ", realty=" + realty + ", seller=" + seller
 					+ ", financingAgencyId=" + financingAgencyId + ", payDay=" + payDay + ", billNumber=" + billNumber
 					+ ", barcode=" + barcode + ", inInstallment=" + inInstallment + ", totalInstallment=" + totalInstallment
 					+ ", status=" + status + ", paymentForm=" + paymentForm + ", value=" + value + ", description="

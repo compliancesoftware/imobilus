@@ -1,6 +1,5 @@
 package br.com.imobilus.admin.model;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -37,7 +36,7 @@ public class Achievement implements br.com.imobilus.admin.model.Entity {
 	private Calendar endAt;
 	
 	@Column(name = "presentation_image", length = 15000000)
-	private byte[] presentationImage;
+	private String presentationImage;
 	
 	@Column(name = "social_elevators", nullable = false)
 	private Integer socialElevators;
@@ -110,11 +109,11 @@ public class Achievement implements br.com.imobilus.admin.model.Entity {
 		this.endAt = endAt;
 	}
 
-	public byte[] getPresentationImage() {
+	public String getPresentationImage() {
 		return presentationImage;
 	}
 
-	public void setPresentationImage(byte[] presentationImage) {
+	public void setPresentationImage(String presentationImage) {
 		this.presentationImage = presentationImage;
 	}
 
@@ -178,12 +177,12 @@ public class Achievement implements br.com.imobilus.admin.model.Entity {
 	public String toString() {
 		try {
 			return "Achievement [id=" + id + ", name=" + name + ", addressId=" + addressId + ", startAt=" + startAt
-					+ ", endAt=" + endAt + ", presentationImage=" + Arrays.toString(presentationImage)
+					+ ", endAt=" + endAt + ", presentationImage=" + presentationImage
 					+ ", socialElevators=" + socialElevators + ", serviceElevators=" + serviceElevators
 					+ ", hasAccessibility=" + hasAccessibility + ", createdAt=" + createdAt + ", createdBy=" + createdBy
 					+ ", updatedAt=" + updatedAt + ", updatedBy=" + updatedBy + "]";
 		} catch(NullPointerException e) {
-			return "Achievement [null]";
+			return "Achievement [id=" + id + ", name=" + name + "]";
 		}
 	}
 }

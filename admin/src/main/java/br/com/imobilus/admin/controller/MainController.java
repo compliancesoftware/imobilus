@@ -187,7 +187,6 @@ public class MainController {
 									
 									if(createdCompany != null) {
 										Logs.info("[MainController] :: firstState :: Test company creation success.");
-										
 										response.setMessage("Bem vindo ao Imobilus!");
 										response.setStatus(Status.OK);
 										httpResponse = new ResponseEntity<ProcResponse>(response, HttpStatus.OK);

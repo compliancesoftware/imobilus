@@ -1,6 +1,5 @@
 package br.com.imobilus.admin.model;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -30,7 +29,7 @@ public class FinancingAgency implements br.com.imobilus.admin.model.Entity  {
 	private Address addressId;
 	
 	@Column(name = "logo", length = 15000000)
-	private byte[] logo;
+	private String logo;
 	
 	@Column(name = "created_at", nullable = false)
 	private Calendar createdAt;
@@ -78,11 +77,11 @@ public class FinancingAgency implements br.com.imobilus.admin.model.Entity  {
 		this.addressId = addressId;
 	}
 
-	public byte[] getLogo() {
+	public String getLogo() {
 		return logo;
 	}
 
-	public void setLogo(byte[] logo) {
+	public void setLogo(String logo) {
 		this.logo = logo;
 	}
 
@@ -122,7 +121,7 @@ public class FinancingAgency implements br.com.imobilus.admin.model.Entity  {
 	public String toString() {
 		try {
 			return "FinancingAgency [id=" + id + ", name=" + name + ", code=" + code + ", addressId=" + addressId
-					+ ", logo=" + Arrays.toString(logo) + ", createdAt=" + createdAt + ", createdBy=" + createdBy
+					+ ", logo=" + logo + ", createdAt=" + createdAt + ", createdBy=" + createdBy
 					+ ", updatedAt=" + updatedAt + ", updatedBy=" + updatedBy + "]";
 		} catch(NullPointerException e) {
 			return "FinancingAgency [null]";
